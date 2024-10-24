@@ -1,0 +1,26 @@
+<div class="container">
+  <dx-data-grid
+    class="grid"
+    [dataSource]="dataSource"
+    keyExpr="ID"
+  >
+    <dxo-editing
+      mode="cell"
+      [allowUpdating]="true"
+    >
+    </dxo-editing>
+
+    <dxi-column dataField="Prefix" caption="Title"></dxi-column>
+    <dxi-column dataField="FirstName" [cellTemplate]="'reportEmailTpl'"></dxi-column>
+    <dxi-column dataField="LastName"></dxi-column>
+    <dxi-column dataField="Position" [width]="130"></dxi-column>
+    <dxi-column dataField="StateID" caption="State" [width]="125">
+      <dxo-lookup [dataSource]="states" displayExpr="Name" valueExpr="ID">
+      </dxo-lookup>
+    </dxi-column>
+    <dxi-column dataField="BirthDate" [width]="125" dataType="date"> </dxi-column>
+    <ng-container *dxTemplate="let rowObject of 'reportEmailTpl'">
+      <div class="editcell">{{rowObject.data.FirstName}}</div>
+    </ng-container>
+  </dx-data-grid>
+</div>

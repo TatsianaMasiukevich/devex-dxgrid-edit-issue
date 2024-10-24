@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  height: 100%;
+}
+
+.grid {
+  flex-grow: 1;
+}
+
+.editcell {
+  background-color: lightgrey;
+  padding: 8px;
+  border-radius: 2px;
+}
